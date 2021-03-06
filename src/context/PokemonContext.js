@@ -9,16 +9,20 @@ class PokemonContext {
   constructor() {
     makeObservable(this, {
       list: observable,
+      myList: observable,
       fetchData: action,
       addMyList: action,
       removeItemMyList: action,
     })
   }
 
-  fetchData() {
+  fetchData(key) {
+    let url = 'http://localhost:3030/api/cards?limit=20'
+    if (key) { url = `${url}&name=${key.toLowerCase()}&type=normal` }
+
     axios({
       method: 'get',
-      url: 'http://localhost:3030/api/cards?limit=100',
+      url: url,
     }).then((response) => {
       console.log(response.data.cards);
       this.list = response.data.cards
@@ -32,8 +36,10 @@ class PokemonContext {
   }
 
   removeItemMyList(id) {
-    this.myList = this.myList.filter(item => item.id != id);
-    console.log(this.myList);
+    var removeIndex = this.myList.map(item => {
+      return item.id;
+    }).indexOf(id);
+    this.myList.splice(removeIndex, 1);
   }
 
 

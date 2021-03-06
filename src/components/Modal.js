@@ -18,9 +18,7 @@ const Modal = (props) => {
   });
 
   React.useEffect(() => {
-
     pokemonStore.fetchData()
-    console.log(pokemonStore);
   }, []);
 
   if (isShow) {
@@ -29,7 +27,7 @@ const Modal = (props) => {
         <div ref={ref} className="modalContainer" style={{ backgroundColor: COLORS.Colorless }}>
           <div style={{ padding: 20 }}>
             <div className="inputContainer" style={{ borderColor: COLORS.Gray }}>
-              <input placeholder="Find pokemon" />
+              <input placeholder="Find pokemon" onChange={(event) => pokemonStore.fetchData(event.target.value)} />
               <img style={{ width: 44, height: 44 }} src={IMAGES.iconSearch} alt="Search" />
             </div>
 

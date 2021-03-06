@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { observer } from "mobx-react-lite";
 import './App.css'
-import { COLORS, IMAGES } from './constants';
+import { COLORS } from './constants';
 import { Card, Modal } from './components';
 import { PokemonContext } from './context';
 
@@ -27,14 +27,14 @@ const App = () => {
                 hp={item.hp}
                 attacks={item.attacks ? item.attacks.length : 0}
                 weakness={item.weaknesses ? item.weaknesses.length : 0}
-                onClickRemove={() => pokemonStore.removeItemMyList(item.id)}
+                onClickRemove={() => { pokemonStore.removeItemMyList(item.id) }}
               />
             ))
           }
         </div>
 
         <div
-          className="buttonAdd"
+          className="buttonAdd pointer"
           style={{ backgroundColor: COLORS.Fire }}
           onClick={() => setShowModal(true)}
         >

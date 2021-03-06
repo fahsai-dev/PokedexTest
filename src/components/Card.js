@@ -23,12 +23,13 @@ const Card = (props) => {
     else return `0%`
   }
 
-  // const HappinessLevelcalculation = () => {
-  //   const value = ((hp / 10) + (Damage / 10) + 10 - (Weakness)) / 5
-  // }
+  const HappinessLevelcalculation = () => {
+    const value = ((hp / 10) + (50 / 10) + 10 - weakness) / 5
+    return value
+  }
 
   return (
-    <div className="cardContainer flexRow" style={{ width: width || '100%', backgroundColor: COLORS.Gray }}>
+    <div className="cardContainer flexRow" style={{ width: width || '100%', backgroundColor: COLORS.Gray, display: 'hidden' }}>
       <div style={{ width: '30%', padding: 10 }}>
         <img style={{ objectFit: 'contain', width: '100%', height: 200 }} src={imageUrl || IMAGES.iconCute} />
       </div>
@@ -46,10 +47,17 @@ const Card = (props) => {
 
         <Level title={'HP'} percent={HPLevelcalculation()} />
         <Level title={'STR'} percent={StrengthLevelcalculation()} />
-        <Level title={'WEAK' + weakness} percent={WeaknessLevelcalculation()} />
+        <Level title={'WEAK'} percent={WeaknessLevelcalculation()} />
 
         <div className="flexRow" style={{ marginTop: 10 }}>
-          <img style={{ objectFit: 'contain', width: 40, height: 40, marginRight: 4 }} src={IMAGES.iconCute} alt="icon" />
+          {
+            Array.from({ length: HappinessLevelcalculation() }, (x, i) => {
+              return (
+                <img key={i} style={{ objectFit: 'contain', width: 40, height: 40, marginRight: 4 }} src={IMAGES.iconCute} alt="icon" />
+              )
+            })
+          }
+
         </div>
       </div>
     </div>
