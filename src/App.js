@@ -9,11 +9,11 @@ class App extends Component {
       <div className="App">
         <div className="container" style={{ backgroundColor: COLORS.Colorless }}>
 
-          <div style={{ width: '100%', height: 100, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <div className="headerBar">
             <a className="font-42">My Pokedex</a>
           </div>
 
-          <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', height: 600, marginLeft: 20, marginRight: 20, overflow: 'scroll', justifyContent: 'space-between' }}>
+          <div className="flexRow list">
             <Card width="49%" />
             <Card width="49%" />
             <Card width="49%" />
