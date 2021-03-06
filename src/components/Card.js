@@ -34,7 +34,7 @@ const Card = (props) => {
   return (
     <div className="cardContainer flexRow" style={{ width: width || '100%', backgroundColor: COLORS.Gray, display: hidden ? 'none' : 'black' }}>
       <div style={{ width: '30%', padding: 10 }}>
-        <img style={{ objectFit: 'contain', width: '100%', height: 200 }} src={imageUrl || IMAGES.iconCute} />
+        <img style={{ objectFit: 'contain', width: '100%', height: 200 }} src={imageUrl || IMAGES.iconCute} alt="card" />
       </div>
       <div style={{ width: '70%', padding: 20 }}>
         <div className="flexRow" style={{ justifyContent: 'space-between', marginBottom: 10 }}>

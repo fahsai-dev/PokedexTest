@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import * as React from "react";
 import { observer } from "mobx-react-lite";
 import './App.css'
 import { COLORS } from './constants';

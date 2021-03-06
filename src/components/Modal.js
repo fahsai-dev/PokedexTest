@@ -19,7 +19,7 @@ const Modal = (props) => {
 
   React.useEffect(() => {
     pokemonStore.fetchData()
-  }, []);
+  }, [pokemonStore]);
 
   if (isShow) {
     return (
