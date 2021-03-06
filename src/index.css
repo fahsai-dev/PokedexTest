@@ -39,6 +39,10 @@ body {
   border: 1px inset #7b7b7b;
 }
 
+*:focus {
+  outline: none;
+}
+
 .flexRow {
   display: flex; 
   flex-direction: row;
