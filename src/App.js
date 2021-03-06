@@ -1,24 +1,35 @@
 import React, { Component } from 'react'
 import './App.css'
-
-const COLORS = {
-  Psychic: "#f8a5c2",
-  Fighting: "#f0932b",
-  Fairy: "#c44569",
-  Normal: "#f6e58d",
-  Grass: "#badc58",
-  Metal: "#95afc0",
-  Water: "#3dc1d3",
-  Lightning: "#f9ca24",
-  Darkness: "#574b90",
-  Colorless: "#FFF",
-  Fire: "#eb4d4b"
-}
+import { COLORS, IMAGES } from './constants';
+import { Card } from './components';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
+        <div className="container" style={{ backgroundColor: COLORS.Colorless }}>
+
+          <div style={{ width: '100%', height: 100, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <a className="font-42">My Pokedex</a>
+          </div>
+
+          <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', height: 600, marginLeft: 20, marginRight: 20, overflow: 'scroll', justifyContent: 'space-between' }}>
+            <Card width="49%" />
+            <Card width="49%" />
+            <Card width="49%" />
+            <Card width="49%" />
+            <Card width="49%" />
+            <Card width="49%" />
+            <Card width="49%" />
+            <Card width="49%" />
+            <Card width="49%" />
+            <Card width="49%" />
+          </div>
+
+          <div className="buttonAdd" style={{ backgroundColor: COLORS.Fire }}>
+            <a style={{ color: COLORS.Colorless }}>+</a>
+          </div>
+        </div>
       </div>
     )
   }
