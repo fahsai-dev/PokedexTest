@@ -2,9 +2,11 @@ import * as React from "react";
 import { observer } from "mobx-react-lite";
 import { COLORS, IMAGES } from '../constants';
 import { Level } from '../components';
+import { PokemonContext } from '../context';
 
 const Card = (props) => {
-  const { width, imageUrl, name, hp, attacks, weakness, onClickAdd, onClickRemove } = props;
+  const { width, id, imageUrl, name, hp, attacks, weakness, onClickAdd, onClickRemove } = props;
+  const pokemonStore = React.useContext(PokemonContext);
 
   const HPLevelcalculation = () => {
     if (!parseInt(hp, 10)) return `0%`
@@ -28,17 +30,18 @@ const Card = (props) => {
     return value
   }
 
+  const hidden = pokemonStore.myList.some(item => item.id === id);
   return (
-    <div className="cardContainer flexRow" style={{ width: width || '100%', backgroundColor: COLORS.Gray, display: 'hidden' }}>
+    <div className="cardContainer flexRow" style={{ width: width || '100%', backgroundColor: COLORS.Gray, display: hidden ? 'none' : 'black' }}>
       <div style={{ width: '30%', padding: 10 }}>
         <img style={{ objectFit: 'contain', width: '100%', height: 200 }} src={imageUrl || IMAGES.iconCute} />
       </div>
       <div style={{ width: '70%', padding: 20 }}>
         <div className="flexRow" style={{ justifyContent: 'space-between', marginBottom: 10 }}>
           <div className="font-22">{name || 'title'}</div>
-
           {
-            onClickAdd && <div className="font-22 pointer" style={{ color: COLORS.Fairy }} onClick={onClickAdd}>Add</div>
+            onClickAdd &&
+            <div className="font-22 pointer" style={{ color: COLORS.Fairy }} onClick={onClickAdd}>Add</div>
           }
           {
             onClickRemove && <div className="font-22 pointer" style={{ color: COLORS.Fairy }} onClick={onClickRemove}>X</div>

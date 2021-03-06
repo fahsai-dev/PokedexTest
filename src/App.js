@@ -34,11 +34,11 @@ const App = () => {
         </div>
 
         <div
-          className="buttonAdd pointer"
-          style={{ backgroundColor: COLORS.Fire }}
+          className="pointer"
+          style={{ backgroundColor: COLORS.Fire, width: '100%', height: 68, position: 'absolute' }}
           onClick={() => setShowModal(true)}
         >
-          <a style={{ color: COLORS.Colorless }}>+</a>
+          <div className="buttonAdd" style={{ color: COLORS.Colorless, backgroundColor: COLORS.Fire }}>+</div>
         </div>
 
         {

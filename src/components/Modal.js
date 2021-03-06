@@ -36,6 +36,7 @@ const Modal = (props) => {
                 pokemonStore.list.map((item) => (
                   <Card
                     key={item.id}
+                    id={item.id}
                     imageUrl={item.imageUrl}
                     name={item.name}
                     hp={item.hp}
